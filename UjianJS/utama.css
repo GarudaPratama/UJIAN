@@ -61,36 +61,73 @@ body, .card, .table th, .table td, .primary-btn, .icon-btn, .row-btn {
   font-weight: 600;
   position: relative;
   overflow: hidden;
+  transition: all 0.25s ease;
 }
 
+/* Tombol utama (Tambah, dsb.) */
 .primary-btn {
   background: #6a5acd;
   color: #fff;
+  box-shadow: 0 4px 12px rgba(106, 90, 205, 0.4);
+  animation: pulseGlow 2s infinite;
 }
 .primary-btn:hover {
   background: #5947c2;
-  transform: scale(1.05);
-  transition: all 0.3s ease;
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(106, 90, 205, 0.6);
+}
+.primary-btn:active {
+  transform: scale(0.95);
 }
 
+/* Animasi glow berdenyut untuk tombol Tambah */
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 rgba(106, 90, 205, 0.6); }
+  50% { box-shadow: 0 0 20px rgba(106, 90, 205, 0.9); }
+  100% { box-shadow: 0 0 0 rgba(106, 90, 205, 0.6); }
+}
+
+/* Tombol icon (theme toggle, dll.) */
 .icon-btn {
   font-size: 1.2rem;
   background: transparent;
+  color: inherit;
+  transition: transform 0.25s ease;
+}
+.icon-btn:hover {
+  transform: rotate(15deg) scale(1.2);
+}
+.icon-btn:active {
+  transform: scale(0.9);
 }
 
-/* Button glow */
-.primary-btn::after, .row-btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-  transition: left 0.6s ease;
+/* Tombol dalam tabel */
+.row-btn {
+  margin: 0 2px;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #fff;
+  border: none;
+  transition: all 0.2s ease;
 }
-.primary-btn:hover::after, .row-btn:hover::after {
-  left: 100%;
+
+/* Variasi warna row-btn berdasarkan urutan */
+.row-btn:nth-child(1) { background: #28a745; } /* ➕ hijau */
+.row-btn:nth-child(2) { background: #ffc107; color: #333; } /* ➖ kuning */
+.row-btn:nth-child(3) { background: #17a2b8; } /* Edit biru */
+.row-btn:nth-child(4) { background: #dc3545; } /* Hapus merah */
+
+/* Hover effect row-btn */
+.row-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Klik (active) row-btn */
+.row-btn:active {
+  transform: scale(0.95);
 }
 
 /* ===== Cards ===== */
@@ -153,13 +190,6 @@ body.dark .table td {
 
 @keyframes rowFade {
   to { opacity: 1; transform: translateY(0); }
-}
-
-.row-btn {
-  margin: 0 2px;
-  padding: 0.4rem 0.6rem;
-  border-radius: 6px;
-  font-size: 0.85rem;
 }
 
 /* ===== Footer ===== */

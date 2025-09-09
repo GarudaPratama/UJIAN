@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     return;
   }
-
+  
   const data = daftarMukh[index];
   document.getElementById("nama").value = data.nama;
   document.getElementById("kelas").value = data.kelas;
