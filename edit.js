@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showClass: { popup: "animate__animated animate__fadeInDown" },
       hideClass: { popup: "animate__animated animate__fadeOutUp" }
     }).then(() => {
-      window.location.href = "utama.html";
+      window.location.href = "index.html";
     });
   });
 });
