@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mukhallif — Daftar</title>
+
+  <!-- Font modern -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Animate.css untuk animasi SweetAlert2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="utama.css">
+</head>
+<body>
+  <div class="app-wrap">
+    <header class="topbar">
+      <div class="brand">
+        <h1>Mukhallif <small class="mini">— OSIS</small></h1>
+        <span class="subtitle">Sistem pendataan pelanggar</span>
+      </div>
+
+      <div class="controls">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">🌙</button>
+        <button id="add-btn" class="primary-btn">➕ Tambah</button>
+      </div>
+    </header>
+
+    <!-- Summary card -->
+    <section class="summary card">
+      <h2>Rekap Total</h2>
+      <div class="summary-grid">
+        <div class="summary-item bahasa">
+          <div class="label">🗣️ Bahasa</div>
+          <div class="value" id="total-bahasa">0</div>
+        </div>
+        <div class="summary-item ibadah">
+          <div class="label">🙏 Ibadah</div>
+          <div class="value" id="total-ibadah">0</div>
+        </div>
+        <div class="summary-item kebersihan">
+          <div class="label">🧹 Kebersihan</div>
+          <div class="value" id="total-kebersihan">0</div>
+        </div>
+        <div class="summary-item keamanan">
+          <div class="label">🛡️ Keamanan</div>
+          <div class="value" id="total-keamanan">0</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Table card -->
+    <main class="card">
+      <div class="card-head">
+        <h2>Daftar Mukhallif</h2>
+        <p class="muted">Klik tombol kategori untuk menambah/kurangi hitungan. Klik Edit untuk ubah data.</p>
+      </div>
+
+      <div class="table-wrap">
+        <table id="tabel-mukhallif" class="table" role="table">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Kelas</th>
+              <th>Kamar</th>
+              <th>Bahasa</th>
+              <th>Ibadah</th>
+              <th>Kebersihan</th>
+              <th>Keamanan</th>
+              <th class="col-action">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="daftar-mukhallif"></tbody>
+        </table>
+
+        <div id="empty-state" class="empty-state" hidden>
+          <p>Belum ada data. Klik <strong>Tambah</strong> untuk menambahkan mukhallif.</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <small>© <span id="year"></span> — Mukhallif OSIS</small>
+    </footer>
+  </div>
+
+  <script src="utama.js"></script>
+</body>
+</html>
